@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold: #C5A059;
+  --color-rich-black: #0A0A0A;
+  --color-cream: #F4F1EA;
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0A0A;
+  --foreground: #F4F1EA;
+  --gold: #C5A059;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Force dark theme globally to prevent 'raw' white flashes */
+html {
+  background-color: #0A0A0A !important;
+  color: #F4F1EA !important;
+  scroll-behavior: smooth;
+  /* Prevents layout shift on scroll */
+  scrollbar-gutter: stable; 
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0A0A0A;
+  color: #F4F1EA;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+  /* LUXURY TEXTURE: Subtle noise overlay to make the black feel 'material' */
+  background-image: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.02) 0%, transparent 100%),
+    url("https://www.transparenttextures.com/patterns/stardust.png");
+}
+
+/* Fix Typography - Making it feel 'Editorial' */
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+  /* Tighter tracking for large luxury headers */
+  letter-spacing: -0.04em !important; 
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+/* Luxury Tracking for small labels */
+.tracking-luxury {
+  letter-spacing: 0.6em !important;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+/* Interactive elements */
+a, button {
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Remove default focus rings that look cheap */
+:focus {
+  outline: none;
+}
+
+/* Custom Scrollbar - Sleeker & Minimal */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--gold);
+  color: #0A0A0A;
 }
