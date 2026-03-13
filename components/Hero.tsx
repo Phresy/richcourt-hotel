@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 
-export default function Hero() {
+type HeroProps = {
+  onCheckClick: () => void;
+};
+
+export default function Hero({ onCheckClick }: HeroProps) {
   return (
     <section className="relative h-screen w-full flex items-center justify-center bg-[#050505] overflow-hidden">
       {/* 1. Deep Layer: Subtle Animated Orbs */}
@@ -69,12 +73,15 @@ export default function Hero() {
           transition={{ duration: 1.5, delay: 1.4 }}
           className="flex flex-col items-center"
         >
-          <p className="text-cream/40 text-xs md:text-sm max-w-sm leading-relaxed mb-12 font-sans font-light tracking-[0.1em] uppercase">
+          <p className="text-cream/40 text-xs md:text-sm max-w-sm leading-relaxed mb-12 font-sans font-light tracking-widest uppercase">
             A sanctuary of privacy <br/> 
             & refined hospitality.
           </p>
           
-          <button className="group relative border border-gold/40 px-16 py-5 text-gold uppercase tracking-[0.4em] text-[10px] transition-all duration-700 hover:border-gold">
+          <button
+            onClick={onCheckClick}
+            className="group relative border border-gold/40 px-16 py-5 text-gold uppercase tracking-[0.4em] text-[10px] transition-all duration-700 hover:border-gold"
+          >
             <div className="absolute inset-0 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             <span className="relative z-10 group-hover:text-black transition-colors duration-500">
               Discover Excellence

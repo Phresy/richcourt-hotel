@@ -46,7 +46,7 @@ export default function ReservationPage() {
             </div>
             <div>
               <p className="text-gold text-[10px] uppercase tracking-widest mb-1 font-sans">Power Guarantee</p>
-              <p className="text-cream text-lg font-serif tracking-wide uppercase tracking-tighter text-sm">Industrial Backup Enabled</p>
+              <p className="text-cream text-sm font-serif tracking-wide uppercase">Industrial Backup Enabled</p>
             </div>
           </div>
         </motion.div>
@@ -56,7 +56,7 @@ export default function ReservationPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative bg-white/[0.02] border border-white/5 p-8 md:p-12 backdrop-blur-sm overflow-hidden"
+          className="relative bg-white/2 border border-white/5 p-8 md:p-12 backdrop-blur-sm overflow-hidden"
         >
           {/* Loading Overlay */}
           <AnimatePresence>
@@ -121,7 +121,7 @@ export default function ReservationPage() {
                 <input 
                   required
                   type="date" 
-                  className="w-full bg-transparent text-cream py-2 outline-none [color-scheme:dark] font-sans text-xs uppercase tracking-widest"
+                  className="w-full bg-transparent text-cream py-2 outline-none scheme-dark font-sans text-xs uppercase tracking-widest"
                 />
               </div>
               <div className="group relative border-b border-white/10 pb-2 focus-within:border-gold transition-colors">
